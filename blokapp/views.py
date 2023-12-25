@@ -15,6 +15,10 @@ def index(request):
 def store(request):
     if request.method == 'POST':
         rpost = request.POST
+
+        if rpost['title'] == '' or rpost['content'] == '':
+            return redirect('store')
+
         post = Post(title=rpost['title'], content=rpost['content'])
         Post.save(post)
 
