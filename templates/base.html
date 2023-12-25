@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blok</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="flex justify-center items-center bg-slate-950 h-12">
+        <h1 class="text-3xl font-bold tracking-widest text-white">Blok</h1>
+    </header>
+    <main class="flex flex-col items-center justify-center m-5 ">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="flex flex-col items-start bg-slate-950 pl-20 pt-5 text-white text-xl">
+        <h1 class="text-3xl font-bold tracking-widest">Blok</h1>
+        <ul class="mt-4">
+            <li class="mb-4 underline"><a href="{% url 'index' %}">Homepage</a></li>
+            <li class="mb-4 underline"><a href="{% url 'store' %}">Add Post</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

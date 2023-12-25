@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="text-2xl text-center font-medium">Insira um post no blog</h1>
+
+    <form action="{% url 'store' %}" method="post" class="flex flex-col mt-8">
+        {% csrf_token %}
+        <label class="text-xl mb-1" for="title">Título</label>
+        <input class="border-2" type="text" name="title" id="title">
+
+        <label class="text-xl mt-2 mb-1" for="content">Conteúdo</label>
+        <textarea class="border-2" name="content" id="content" cols="30" rows="10"></textarea>
+        <input class="border-4 mt-2 bg-slate-100 cursor-pointer hover:bg-slate-200 transition" type="submit" value="Criar">
+    </form>
+{% endblock %}

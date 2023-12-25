@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="text-2xl text-center font-medium"> Olá, {{ name }}</h1>
+
+    <section class="flex flex-col-reverse items-center w-full">
+        {% for post in posts %}
+            <article class="flex flex-col mt-5 mb-5 bg-gray-950 w-3/4 h-60 text-white rounded pl-5 pr-5 pt-5">
+                <h2 class="text-2xl mb-3"> {{ post.title }} </h2>
+                <p> {{ post.content }} </p>
+            </article>
+        {% empty %}
+            <h2 class="text-2xl text-center"> Não há posts </h2>
+        {% endfor %}
+    </section>
+
+{% endblock %}
