@@ -13,6 +13,14 @@
         <h1 class="text-3xl font-bold tracking-widest text-white">Blok</h1>
     </header>
     <main class="flex flex-col items-center justify-center m-5 ">
+        {% if messages %}
+            <ul class="messages ">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
         {% block content %}
         {% endblock %}
     </main>
@@ -20,7 +28,12 @@
         <h1 class="text-3xl font-bold tracking-widest">Blok</h1>
         <ul class="mt-4">
             <li class="mb-4 underline"><a href="{% url 'index' %}">Homepage</a></li>
-            <li class="mb-4 underline"><a href="{% url 'store' %}">Add Post</a></li>
+            <li class="mb-4 underline"><a href="{% url 'login' %}">Login</a></li>
+            <li class="mb-4 underline"><a href="{% url 'signup' %}">Signup</a></li>
+            {% if user.is_authenticated %}
+                <li class="mb-4 underline"><a href="{% url 'store' %}">Add Post</a></li>
+            	<li class="mb-4 underline text-red-500"><a href="{% url 'logout' %}">Logout</a></li>
+            {% endif %}
         </ul>
     </footer>
 </body>

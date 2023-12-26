@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'login' %}" method="post" class="bg-slate-900 w-96 h-96 text-white text-2xl p-5 flex flex-col rounded">
+        {% csrf_token %}
+        <h1 class="text-3xl text-center font-bold tracking-wide">Login</h1>
+        <label class="mt-5" for="username">Username:</label>
+        <input class="text-black" type="text" name="username" id="username">
+        <label class="mt-5" for="password">Password:</label>
+        <input class="text-black" type="password" name="password" id="password">
+
+        <input class="mt-5 bg-slate-950 rounded p-2 cursor-pointer" type="submit" value="Login">
+    </form>
+{% endblock %}
